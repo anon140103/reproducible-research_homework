@@ -26,11 +26,11 @@ A random seed is the initial input for a pseudorandom number generator. In R, wh
 
 **d) Go to your commit history and click on the latest commit. Show the edit you made to the code in the comparison view (add this image to the README.md of the fork). (5 points)**
 
-![](images/clipboard-119653044.png)
+![](Commit_History_1.png)
 
-![](images/clipboard-2057607044.png)
+![](Commit_History_2.png)
 
-![](images/clipboard-3097351457.png)
+![](Commit_History_3.png)
 
 ### Question 5:
 
@@ -71,20 +71,20 @@ summary(model1)
 
 **c) Find the exponent (β) and scaling factor (α) of the allometric law for dsDNA viruses and write the p-values from the model you obtained, are they statistically significant? Compare the values you found to those shown in Table 2 of the paper, did you find the same values? (10 points)**
 
-![](images/clipboard-3042477181.png)
+![](Summary_Table.png)
 
 In the fitted linear model, the slope represents $\alpha$, and the intercept corresponds to $\ln(\beta)$. From the model summary output, we obtain:
 
--   The exponent $\alpha$ is approximately **1.5152**.
--   The intercept $\ln(\beta)$ is **7.0748**, which translates to $\beta = e^{7.0748} = 1181.8$.
+-   The exponent $\alpha$ is approximately 1.5152.
+-   The intercept $\ln(\beta)$ is 7.0748, which translates to $\beta = e^{7.0748} = 1181.8$.
 
 After rounding, these values are consistent with those reported in Table 2 of the original paper, where $\alpha = 1.52$ and $\beta = 1182$.
 
 Regarding statistical significance:
 
-The p-value for $\alpha$ (log_L) is **6.44e-10**, indicating a very strong significance.
+The p-value for $\alpha$ (log_L) is 6.44e-10, indicating a very strong significance.
 
-The intercept also shows a highly significant p-value of **2.28e-10**.
+The intercept also shows a highly significant p-value of 2.28e-10.
 
 **d) Write the code to reproduce the figure shown below. (10 points)**
 
