@@ -10,17 +10,17 @@ Sometimes we are interested in modelling a process that involves randomness. A g
 
 ![](random_walks_combined.png)
 
-The provided script simulates and visualizes the paths of two independent random walks on a two-dimensional plane. Each walk begins at the origin (0,0) and progresses through a series of randomized steps. The color gradient represents the progression of time: darker shades of blue correspond to earlier steps, while lighter shades indicate later steps. Thus, we can observe that each walk starts at the darker end of the path and finishes at the lighter end.
+The provided script simulates and visualises the paths of two independent random walks on a 2D plane. Each walk begins at the origin (0,0) and moves through randomised steps. The colour gradient represents the progression of time. The darker shades of blue represent earlier steps in the walk and the lighter shades represent the later steps.
 
-Every time the function is executed, it generates a unique, unpredictable path since each step is determined randomly. The number specified within the function's bracketts determines the length of the walk; here 500 time units were used for each simulation.
+Every time I run the function, it generates a unique, unpredictable path because each step is determined randomly. The number specified within the function's brackets determines the length of the walk; here the simulation ran for 500 units of time.
 
-When comparing the two plots, we notice that the right-hand path appears more concentrated, indicating the random walk tended to stay closer to the starting point, while the left-hand path is more dispersed, covering a larger area. Additionally, the left plot, while not perfectly balanced, shows slightly more exploration into both positive and negative x-values, suggesting a somewhat more even distribution of steps to the right and left. In contrast, the right plot shows a noticeable skew, with the path predominantly confined to the negative x-axis, resulting in limited movement into positive x-values.
+When comparing the two plots, I notice that the right-hand path is more concentrated, the random walk stayed closer to the starting point, while the left-hand path is more dispersed, covering a larger area. The left plot also shows slightly more exploration into both positive and negative x-values, suggesting a more even distribution of steps to the right and left. In contrast, the right plot shows a noticeable skew, with the path confined to the negative x-axis.
 
-This highlights the stochastic nature of random walks, where each path evolves independently and can exhibit a wide range of behaviors, even when using the same parameters.
+This highlights the stochastic nature of random walks, each path evolves independently even when using the same parameters.
 
 **b) Investigate the term random seeds. What is a random seed and how does it work? (5 points)**
 
-A random seed is the initial input for a pseudorandom number generator. In R, when algorithms generate what appear to be "random" numbers, they are actually pseudorandom. This means that the sequence is not truly random but is instead determined by the seed used to start the process. The sequence generated will be the same if the same seed is provided. Setting a seed makes the results of pseudorandom number generation reproducible. For example, if you set a specific seed before running a function that involves randomness, such as generating a random walk, using the same seed will produce the exact same output each time you run the function. This consistency is because the seed guides how the generator produces the sequence of numbers. Though different algorithms may use the seed differently, using the same seed with the same algorithm will always yield identical results.
+A random seed is the initial input for a pseudorandom number generator. In R, when algorithms generate what appear to be "random" numbers, they are actually pseudorandom. This means that the sequence is not truly random, it is determined by the seed used to start the process. The sequence generated will be the same if the same seed is provided. Setting a seed makes the results of pseudorandom number generation reproducible. Using the same seed will produce the exact same output each time you run the 'random' function. This consistency is because the seed guides how the generator produces the sequence of numbers. Though different algorithms may use the seed differently, using the same seed with the same algorithm will always yield identical results.
 
 **c) Edit the script to make a reproducible simulation of Brownian motion. Commit the file and push it to your forked `reproducible-research_homework` repo. (10 points)**
 
@@ -54,7 +54,7 @@ $$
 \ln(V) = \ln(\beta) + \alpha \ln(L)
 $$
 
-This transformation allows us to fit a linear model where $\ln(V)$ is the dependent variable and $\ln(L)$ is the independent variable. Below is the R code used to transform the data and fit the model.
+This transformation allows us to fit a linear model of the form y=mx + c. Below is the R code used to transform the data and fit the model.
 
 ``` r
 # Transform the data by applying log transformation
@@ -73,14 +73,12 @@ summary(model1)
 
 ![](Summary_Table.png)
 
-In the fitted linear model, the slope represents $\alpha$, and the intercept corresponds to $\ln(\beta)$. From the model summary output, we obtain:
+In the fitted linear model, the slope represents $\alpha$, and the intercept corresponds to $\ln(\beta)$. From the model summary output, we see:
 
--   The exponent $\alpha$ is approximately 1.5152.
--   The intercept $\ln(\beta)$ is 7.0748, which translates to $\beta = e^{7.0748} = 1181.8$.
+-   $\alpha$ = 1.5152.
+-   $\ln(\beta)$ = 7.0748, so $\beta = e^{7.0748} = 1181.8$.
 
-After rounding, these values are consistent with those reported in Table 2 of the original paper, where $\alpha = 1.52$ and $\beta = 1182$.
-
-Regarding statistical significance:
+These values are consistent with those reported in Table 2 of the original paper, where $\alpha = 1.52$ and $\beta = 1182$.
 
 The p-value for $\alpha$ (log_L) is 6.44e-10, indicating a very strong significance.
 
