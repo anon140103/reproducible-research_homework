@@ -10,17 +10,21 @@ Sometimes we are interested in modelling a process that involves randomness. A g
 
 ![](random_walks_combined.png)
 
-The provided script simulates and visualises the paths of two independent random walks on a 2D plane. Each walk begins at the origin (0,0) and moves through randomised steps. The colour gradient represents the progression of time. The darker shades of blue represent earlier steps in the walk and the lighter shades represent the later steps.
+The provided script simulates the paths of two independent random walks on a 2D plane. Each walk begins at the origin (0,0) and moves through randomised steps. The colour gradient represents the progression of time. The darker shades of blue represent earlier steps in the walk and the lighter shades represent the later steps.
 
-Every time I run the function, it generates a unique, unpredictable path because each step is determined randomly. The number specified within the function's brackets determines the length of the walk; here the simulation ran for 500 units of time.
+Every time I run the function, it generates a unique, unpredictable path because each step is determined randomly. The number specified within the function's brackets determines the length of the walk, this simulation ran for 500 units of time.
 
-When comparing the two plots, I notice that the right-hand path is more concentrated, the random walk stayed closer to the starting point, while the left-hand path is more dispersed, covering a larger area. The left plot also shows slightly more exploration into both positive and negative x-values, suggesting a more even distribution of steps to the right and left. In contrast, the right plot shows a noticeable skew, with the path confined to the negative x-axis.
+When comparing the two plots, there is a significant difference in the scale of the axes. Although not immediately obvious, the left-hand plot explores a greater range of x-axis values compared to the right-hand plot, while the right-hand plot explores a greater range of y-axis values compared to the left-hand plot. As a result, the left-hand plot shows more exploration of the horizontal 2D space, with more movement into both positive and negative x-axis values. In contrast, the right-hand plot shows more exploration of the vertical 2D space, with more movement into both positive and negative y-axis values.
 
-This highlights the stochastic nature of random walks, each path evolves independently even when using the same parameters.
+In the left-hand plot, the random walk begins with vertical movement up and down the y-axis with some movement into positive x-axis values. As the simulation progresses, the path descends further along the y-axis while also shifting into negative x-axis values. Toward the end of the simulation, the walk climbs back up along the y-axis but continues moving further into the negative x-axis region.
+
+In the right-hand plot, the random walk starts with movement into both negative x-axis and negative y-axis values. As the simulation progresses, the path shifts further along the negative x-axis. Toward the end of the simulation, the walk reverses direction along the y-axis, moving upwards into positive y-axis values.
+
+These observations reveal the randomness of the process - each path evolves independently and unpredictably even when using the same parameters.
 
 **b) Investigate the term random seeds. What is a random seed and how does it work? (5 points)**
 
-A random seed is the initial input for a pseudorandom number generator. In R, when algorithms generate what appear to be "random" numbers, they are actually pseudorandom. This means that the sequence is not truly random, it is determined by the seed used to start the process. The sequence generated will be the same if the same seed is provided. Setting a seed makes the results of pseudorandom number generation reproducible. Using the same seed will produce the exact same output each time you run the 'random' function. This consistency is because the seed guides how the generator produces the sequence of numbers. Though different algorithms may use the seed differently, using the same seed with the same algorithm will always yield identical results.
+A random seed is the initial input for a pseudorandom number generator. In R, when algorithms generate what appear to be "random" numbers, they are actually pseudorandom. This means that the sequence is not truly random, it is determined by the seed used to start the process. The sequence generated will be the same if the same seed is provided. Setting a seed makes the results of pseudorandom number generation reproducible. Using the same seed will produce the exact same output each time you run the 'random' function. This consistency is because the seed guides how the generator produces the sequence of numbers.
 
 **c) Edit the script to make a reproducible simulation of Brownian motion. Commit the file and push it to your forked `reproducible-research_homework` repo. (10 points)**
 
@@ -57,7 +61,7 @@ $$
 This transformation allows us to fit a linear model of the form y=mx + c. Below is the R code used to transform the data and fit the model.
 
 ``` r
-# Transform the data by applying log transformation
+# Log-transform the data
 log_viral_data <- viral_data %>%
   mutate(log_V = log(virion_volume_nm_nm_nm)) %>%
   mutate(log_L = log(genome_length_kb))
@@ -65,7 +69,6 @@ log_viral_data <- viral_data %>%
 # Fit a linear model to the log-transformed data
 model1 <- lm(log_V ~ log_L, log_viral_data)
 
-# Display the summary of the model to look at the results
 summary(model1)
 ```
 
@@ -73,21 +76,21 @@ summary(model1)
 
 ![](Summary_Table.png)
 
-In the fitted linear model, the slope represents $\alpha$, and the intercept corresponds to $\ln(\beta)$. From the model summary output, we see:
+From the model summary output, we see:
 
 -   $\alpha$ = 1.5152.
 -   $\ln(\beta)$ = 7.0748, so $\beta = e^{7.0748} = 1181.8$.
 
 These values are consistent with those reported in Table 2 of the original paper, where $\alpha = 1.52$ and $\beta = 1182$.
 
-The p-value for $\alpha$ (log_L) is 6.44e-10, indicating a very strong significance.
+The p-value for $\alpha$ (log_L) is 6.44e-10, which is \<\<0.001 and statistically significant.
 
-The intercept also shows a highly significant p-value of 2.28e-10.
+The intercept also shows a statistically significant p-value of 2.28e-10 which is \<\<0.001.
 
 **d) Write the code to reproduce the figure shown below. (10 points)**
 
 ```{r}
-# Code to create a plot of the log-transformed data with the fitted linear model
+# Create a plot of the log-transformed data with the fitted linear model
 log_viral_data %>%
   ggplot(aes(x = log_L, y = log_V)) +
   geom_point() + 
@@ -116,12 +119,12 @@ Given this equation, we can estimate the volume ($V$) for a virus with a genome 
 
 1.  First, calculate $\log(300)$.
 2.  Then, substitute this value into the equation to find $\log(V)$.
-3.  Finally, I exponentiate the result to obtain the volume $V$ in the original scale.
+3.  Finally, exponentiate the result to get the volume $V$
 
 I can do this using this code:
 
 ```{r}
-# Define the coefficients from your fitted linear model
+# Define the coefficients from our linear model
 intercept <- 7.0748
 slope <- 1.5152        
 
@@ -131,16 +134,13 @@ L <- 300
 # Calculate log(L)
 log_L <- log(L)
 
-# Use the model equation to compute log(V)
+# Use the model equation to caluclate log(V)
 log_V <- intercept + slope * log_L
 
-# Convert log(V) to V using the exponential function
+# Convert log(V) to V
 V <- exp(log_V)
 
-# Print the estimated volume
 V
-
-
 ```
 
 The estimated volume for a dsDNA virus with a genome length of 300kb is 6697007 nm³ = 6.70 x10^6^ nm³
