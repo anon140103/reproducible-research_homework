@@ -33,7 +33,7 @@ plot1 <- ggplot(aes(x = x, y = y), data = data1) +
   xlab("x-coordinate") +
   ylab("y-coordinate")
 
-# Generate second random walk with seed 55
+#Generate second random walk with seed 55
 data2 <- random_walk(500, seed = 55)
 
 plot2 <- ggplot(aes(x = x, y = y), data = data2) +
