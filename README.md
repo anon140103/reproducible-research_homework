@@ -14,11 +14,7 @@ The provided script simulates the paths of two independent random walks on a 2D 
 
 Every time I run the function, it generates a unique, unpredictable path because each step is determined randomly. The number specified within the function's brackets determines the length of the walk, this simulation ran for 500 units of time.
 
-When comparing the two plots, there is a significant difference in the scale of the axes. Although not immediately obvious, the left-hand plot explores a greater range of x-axis values compared to the right-hand plot, while the right-hand plot explores a greater range of y-axis values compared to the left-hand plot. As a result, the left-hand plot shows more exploration of the horizontal 2D space, with more movement into both positive and negative x-axis values. In contrast, the right-hand plot shows more exploration of the vertical 2D space, with more movement into both positive and negative y-axis values.
-
-In the left-hand plot, the random walk begins with vertical movement up and down the y-axis with some movement into positive x-axis values. As the simulation progresses, the path descends further along the y-axis while also shifting into negative x-axis values. Toward the end of the simulation, the walk climbs back up along the y-axis but continues moving further into the negative x-axis region.
-
-In the right-hand plot, the random walk starts with movement into both negative x-axis and negative y-axis values. As the simulation progresses, the path shifts further along the negative x-axis. Toward the end of the simulation, the walk reverses direction along the y-axis, moving upwards into positive y-axis values.
+When comparing the two plots, there is a marked difference in the scale of the axes. Although not immediately obvious, the left-hand plot explores a greater range of x-axis values compared to the right-hand plot, while the right-hand plot explores a greater range of y-axis values compared to the left-hand plot. As a result, the left-hand plot shows more exploration of the horizontal 2D space, with more movement into both positive and negative x-axis values. In contrast, the right-hand plot shows more exploration of the vertical 2D space, with more movement into both positive and negative y-axis values.
 
 These observations reveal the randomness of the process - each path evolves independently and unpredictably even when using the same parameters.
 
