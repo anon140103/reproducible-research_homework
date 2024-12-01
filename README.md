@@ -20,7 +20,7 @@ These observations reveal the randomness of the process - each path evolves inde
 
 **b) Investigate the term random seeds. What is a random seed and how does it work? (5 points)**
 
-A random seed is the initial input for a pseudorandom number generator. In R, when algorithms generate what appear to be "random" numbers, they are actually pseudorandom. This means that the sequence is not truly random, it is determined by the seed used to start the process. The sequence generated will be the same if the same seed is provided. Setting a seed makes the results of pseudorandom number generation reproducible. Using the same seed will produce the exact same output each time you run the 'random' function. This consistency is because the seed guides how the generator produces the sequence of numbers.
+A random seed is the initial input for a pseudorandom number generator. In R, when algorithms generate what appear to be "random" numbers, they are actually pseudorandom. This means that the sequence is not truly random, it is determined by the seed used to start the process. The sequence generated will be the same if the same seed is provided hence making the results reproducible. 
 
 **c) Edit the script to make a reproducible simulation of Brownian motion. Commit the file and push it to your forked `reproducible-research_homework` repo. (10 points)**
 
