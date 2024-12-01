@@ -14,9 +14,7 @@ The provided script simulates the paths of two independent random walks on a 2D 
 
 Every time I run the function, it generates a unique, unpredictable path because each step is determined randomly. The number specified within the function's brackets determines the length of the walk, this simulation ran for 500 units of time.
 
-When comparing the two plots, there is a marked difference in the scale of the axes. Although not immediately obvious, the left-hand plot explores a greater range of x-axis values compared to the right-hand plot, while the right-hand plot explores a greater range of y-axis values compared to the left-hand plot. As a result, the left-hand plot shows more exploration of the horizontal 2D space, with more movement into both positive and negative x-axis values. In contrast, the right-hand plot shows more exploration of the vertical 2D space, with more movement into both positive and negative y-axis values.
-
-These observations reveal the randomness of the process - each path evolves independently and unpredictably even when using the same parameters.
+When comparing the two plots, we can see a difference in the paths they take. There there is a marked difference in the scale of the axes, and we can see that the left-hand plot explores a greater range of x-axis values compared to the right-hand plot, while the right-hand plot explores a greater range of y-axis values. As a result, the left-hand plot shows more exploration of the horizontal 2D space, with more movement into both positive and negative x-axis values. In contrast, the right-hand plot shows more exploration of the vertical 2D space, with more movement into both positive and negative y-axis values. These observations reveal the randomness of the process - each path evolves independently and unpredictably even when using the same parameters.
 
 **b) Investigate the term random seeds. What is a random seed and how does it work? (5 points)**
 
