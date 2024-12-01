@@ -38,31 +38,19 @@ The data has 33 rows, and 13 columns.
 
 **b) What transformation can you use to fit a linear model to the data? Apply the transformation. (3 points)**
 
-To model the relationship between virion volume ($V$) and genome length ($L$), we can transform the allometric equation:
+To model the relationship between virion volume ($V$) and genome length ($L$), we can apply a log-log transformation to the allometric equation:
 
 $$
 V = \beta L^{\alpha}
 $$
 
-into its logarithmic form:
+to tranform it into its logarithmic form:
 
 $$
 \ln(V) = \ln(\beta) + \alpha \ln(L)
 $$
 
-This transformation allows us to fit a linear model of the form y=mx + c. Below is the R code used to transform the data and fit the model.
-
-``` r
-# Log-transform the data
-log_viral_data <- viral_data %>%
-  mutate(log_V = log(virion_volume_nm_nm_nm)) %>%
-  mutate(log_L = log(genome_length_kb))
-
-# Fit a linear model to the log-transformed data
-model1 <- lm(log_V ~ log_L, log_viral_data)
-
-summary(model1)
-```
+This transformation allows us to fit a linear model of the form y=mx + c. 
 
 **c) Find the exponent (β) and scaling factor (α) of the allometric law for dsDNA viruses and write the p-values from the model you obtained, are they statistically significant? Compare the values you found to those shown in Table 2 of the paper, did you find the same values? (10 points)**
 
