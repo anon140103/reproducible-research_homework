@@ -103,7 +103,7 @@ Given this equation, we can estimate the volume ($V$) for a virus with a genome 
 2.  Then, substitute this value into the equation to find $\log(V)$.
 3.  Finally, exponentiate the result to get the volume $V$
 
-The estimated volume for a dsDNA virus with a genome length of 300kb is **6697007 nm³ = 6.70 x10^6^ nm³**
+The estimated volume for a dsDNA virus with a genome length of 300kb is **6697007 nm³ = 6.70 x10<sup>6</sup> nm³**
 
 Instructions
 
