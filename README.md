@@ -115,29 +115,7 @@ Given this equation, we can estimate the volume ($V$) for a virus with a genome 
 2.  Then, substitute this value into the equation to find $\log(V)$.
 3.  Finally, exponentiate the result to get the volume $V$
 
-I can do this using this code:
-
-```{r}
-# Define the coefficients from our linear model
-intercept <- 7.0748
-slope <- 1.5152        
-
-# Define the genome length (L) in kb
-L <- 300
-
-# Calculate log(L)
-log_L <- log(L)
-
-# Use the model equation to caluclate log(V)
-log_V <- intercept + slope * log_L
-
-# Convert log(V) to V
-V <- exp(log_V)
-
-V
-```
-
-The estimated volume for a dsDNA virus with a genome length of 300kb is 6697007 nm³ = 6.70 x10^6^ nm³
+The estimated volume for a dsDNA virus with a genome length of 300kb is **6697007 nm³ = 6.70 x10^6^ nm³**
 
 Instructions
 
