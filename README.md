@@ -93,6 +93,8 @@ log_viral_data %>%
 
 ```
 
+![](log_gnome_vs_volume.png)
+
 **e) What is the estimated volume of a 300 kb dsDNA virus? (4 points)**
 
 We have already have a fitted linear model for the data, which is defined as:
