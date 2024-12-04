@@ -1,6 +1,6 @@
 # Reproducible research: version control and R
 
-Questions 1,2 and 3: <https://github.com/anon140103/logistic_growth>
+Questions 1, 2 and 3: <https://github.com/anon140103/logistic_growth>
 
 ### Question 4:
 
