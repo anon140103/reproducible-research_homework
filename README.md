@@ -42,7 +42,7 @@ $$
 V = \beta L^{\alpha}
 $$
 
-to tranform it into its logarithmic form:
+to transform it into its logarithmic form:
 
 $$
 \ln(V) = \ln(\beta) + \alpha \ln(L)
